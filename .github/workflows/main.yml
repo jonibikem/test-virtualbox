@@ -19,5 +19,17 @@ jobs:
           sudo apt update
           sudo apt install -y unzip
           cat mico.zip.* > mico.zip
+          
+      - name: Unzip data
+        run: |
+          cat mico.zip.* > mico.zip
           unzip mico.zip
           ls -lha
+                  
+      - name: Install Virtualbox
+        run: |
+          sudo apt update
+          sudo apt install -y virtualbox
+          sudo vboxmanage setproperty machinefolder .
+          sudo vboxmanage import mico.ova --vsys 0 --vmname alp
+          sudo vboxmanage showvminfo alp
