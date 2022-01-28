@@ -30,6 +30,5 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y virtualbox
-          sudo vboxmanage setproperty machinefolder .
           sudo vboxmanage import mico.ova --vsys 0 --vmname alp
           sudo vboxmanage showvminfo alp
