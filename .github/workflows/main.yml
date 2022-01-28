@@ -30,5 +30,16 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y virtualbox
+     
+      - name: Import V
+        run: |
           sudo vboxmanage import mico.ova --vsys 0 --vmname alp
-          sudo vboxmanage showvminfo alp
+          sudo vboxmanage startvm --type headless alp
+          sleep 1m
+          sudo vboxmanage controlvm alp poweroff
+      
+      - name: start V && stop V
+        run: |
+          sudo vboxmanage startvm --type headless alp
+          sleep 1m
+          sudo vboxmanage controlvm alp poweroff
